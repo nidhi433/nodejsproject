@@ -1,0 +1,29 @@
+service: myserverless
+frameworkVersion: '3'
+useDotenv: true
+configValidationMode: error
+deprecationNotificationMode: warn:summary
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  stage: dev
+  region: us-east-1
+  deploymentMethod: direct
+  runtime: nodejs16.x
+
+functions:
+  helloWorld:
+    handler: handler.add
+    events:
+      - http:
+          path: /my-api
+          method: GET
+          cors: true
+custom:
+  serverless-offline:
+     httpPort: 3000
+  
