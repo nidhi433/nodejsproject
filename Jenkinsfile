@@ -1,26 +1,23 @@
 pipeline {
     agent any
-    tools{
-       nodejs'v20.11.0' 
-}
+
     stages {
-        stage('pull-code') {
+        stage('Build') {
             steps {
-               git credentialid:'github_token', url:'https://github.com/nidhi433/nodejsproject.git'
+                // Your build steps here
             }
         }
-         stage('Build') {
-             steps {
-             sh 'npm install'  
+
+        stage('Test') {
+            steps {
+                // Your test steps here
             }
         }
-     stage('Test') {
-             steps('SonarQube Analysis') {
-                withSonarQubeEnv('SonarQubeScanner') {
-                    sh 'npm install sonar-scanner --save-dev'
-                    sh 'npm run sonar'
-                }
+
+        stage('Deploy') {
+            steps {
+                // Your deployment steps here
             }
         }
-        
-         
+    }
+}
