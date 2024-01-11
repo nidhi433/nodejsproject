@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'nodejsv20.11.0
+        nodejs 'v20.11.0'
 ' // Use the appropriate version here
     }
 
     stages {
         stage('pull-code') {
             steps {
-                git credentialsId: 'github_token', url: 'https://github.com/nidhi433/nodejsproject.git'
+                git credentialsId:'github_token', url: 'https://github.com/nidhi433/nodejsproject.git'
             }
         }
 
