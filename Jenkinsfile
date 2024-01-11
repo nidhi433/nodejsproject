@@ -1,10 +1,5 @@
 pipeline {
     agent any
-
-    tools {
-        NodeJS 'NodeJS' 
-    }
-
     stages {
         stage('pull-code') {
             steps {
