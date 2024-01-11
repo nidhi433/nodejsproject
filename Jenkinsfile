@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        Nodejs 'v20.11.0'
+        Nodejs 'NodeJS' // Replace 'NodeJS' with the actual tool name configured in Jenkins
     }
 
     stages {
@@ -15,7 +15,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'npm install'
+                    def nodejsHome = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+                    sh "${nodejsHome}/bin/npm install"
                 }
             }
         }
@@ -24,8 +25,8 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonarQubeScanner') {
-                        sh 'npm install sonar-scanner --save-dev'
-                        sh 'npm run sonar'
+                        sh "${tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin/npm install sonar-scanner --save-dev"
+                        sh "${tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin/npm run sonar"
                     }
                 }
             }
