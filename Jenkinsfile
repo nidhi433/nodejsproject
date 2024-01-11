@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('pull-code') {
             steps {
-                 url: 'https://github.com/nidhi433/nodejsproject.git'
+               git credentialid:'github_token', url:'https://github.com/nidhi433/nodejsproject.git'
             }
         }
          stage('Build') {
