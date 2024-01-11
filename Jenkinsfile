@@ -6,13 +6,17 @@ pipeline {
                 git credentialsId: 'github_token', url: 'https://github.com/nidhi433/nodejsproject.git', branch: 'main'
             }
         }
-
-        stage('Build') {
-             steps {
-             sh 'npm install'  
-            }
+        
+    stage('Build') {
+       steps {
+            script {
+            bat 'npm install'
         }
+    }
+}
 
+
+        
         
        // stage('Build') {
             //steps {
