@@ -3,7 +3,6 @@ pipeline {
 
     tools {
         nodejs 'v20.11.0'
-' // Use the appropriate version here
     }
 
     stages {
