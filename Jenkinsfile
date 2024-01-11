@@ -12,7 +12,6 @@ pipeline {
          stage('Build') {
              steps {
              sh 'npm install'  
-             sh 'npm run build --prod'
             }
         }
 
@@ -24,6 +23,4 @@ pipeline {
                 }
             }
         }
-         stage('Deploy') {
-            steps {
-                 deploy adapters: [tomcat9(credentialsId:…
+         
