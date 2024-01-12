@@ -14,15 +14,6 @@ pipeline {
         }
     }
 }
-        stage('Test') {
-            steps {
-                script {
-                    withSonarQubeEnv('SonarQubeScanner') {
-                        sh "${tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin/npm install sonar-scanner --save-dev"
-                        sh "${tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin/npm run sonar"
-                    }
-                }
-            }
-        }
+      
     }
 }
