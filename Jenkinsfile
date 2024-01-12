@@ -14,19 +14,6 @@ pipeline {
         }
     }
 }
-
-
-        
-        
-       // stage('Build') {
-            //steps {
-               // script {
-                   // def nodejsHome = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-                    //sh "${nodejsHome}/bin/npm install"
-               // }
-            //}
-       // }
-
         stage('Test') {
             steps {
                 script {
