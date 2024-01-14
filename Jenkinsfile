@@ -14,6 +14,14 @@ pipeline {
         }
     }
 }
+     stage('Test') {
+        steps('SonarQube Analysis') {
+             withSonarQubeEnv('sonar') {
+                sh 'npm install sonar-scanner --save-dev'
+                sh 'npm run sonar'
       
     }
 }
+     }
+        )
+    }
