@@ -20,8 +20,10 @@ pipeline {
                 sh 'npm install sonar-scanner --save-dev'
                 sh 'npm run sonar'
       
+       }
     }
+  }
 }
-     }
-        
+}
+
     
