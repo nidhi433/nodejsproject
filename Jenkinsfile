@@ -18,7 +18,7 @@ pipeline {
         steps('SonarQube Analysis') {
              withSonarQubeEnv('sonar') {
                 sh 'npm install sonar-scanner --save-dev'
-                sh 'npm run sonar'
+                sonar-scanner -X
       
        }
     }
