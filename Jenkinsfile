@@ -13,17 +13,19 @@ pipeline {
             bat 'npm install'
         }
     }
-}
+} 
      stage('Test') {
-        steps('SonarQube Analysis') {
-             withSonarQubeEnv('sonartoken') {
-                sh 'npm install sonar-scanner --save-dev'
-            
-      
-       }
+            steps {
+                script {
+                    withSonarQubeEnv('sonartoken') {
+                        sh 'npm install sonar-scanner --save-dev'
+                        sh 'sonar-scanner'
+                    }
+                }
+            }
+        }
     }
-  }
-}
-}
+}   
+      
 
     
