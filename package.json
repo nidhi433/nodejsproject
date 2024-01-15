@@ -3,6 +3,8 @@
     "start": "nyc serverless offline start",
     "test": "nyc mocha *.js",
     "coverage": "nyc --reporter=lcov npm run test --exit",
+    "sonar": "sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -sonartoken.token=sqa_14c1ba92de8fe5d3945d2eb479a96a0a18ff2009"
+  },
    
   "devDependencies": {
     "esm": "^3.2.25",
