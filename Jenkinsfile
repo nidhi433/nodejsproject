@@ -16,7 +16,7 @@ pipeline {
 }
      stage('Test') {
         steps('SonarQube Analysis') {
-             withSonarQubeEnv('sonar') {
+             withSonarQubeEnv('sonartoken') {
                 sh 'npm install sonar-scanner --save-dev'
             
       
