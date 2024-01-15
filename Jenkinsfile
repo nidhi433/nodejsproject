@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        SONAR_SCANNER_HOME = tool 'sonar-scanner'
-    }
     stages {
         stage('pull-code') {
             steps {
