@@ -20,7 +20,7 @@ pipeline {
                     withSonarQubeEnv('sonartoken') {
                         if (isUnix()) {
                            sh 'npm install sonar-scanner --save-dev'
-                           sh 'sonar-scanner'
+                           sh 'npm run sonar'
                         } else {
                            // bat 'npm install sonar-scanner --save-dev'
                            // bat 'sonar-scanner'
