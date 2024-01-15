@@ -22,7 +22,7 @@ pipeline {
                             sh 'npm install sonar-scanner --save-dev'
                             sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
                         } else {
-                            def sonarScannerHome = tool 'SonarQube'
+                            def sonarScannerHome = tool 'sonar-scanner'
                             bat "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=."
                         }
                     }
