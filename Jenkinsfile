@@ -22,8 +22,10 @@ pipeline {
                             sh 'npm install sonar-scanner --save-dev'
                             sh 'sonar-scanner'
                         } else {
-                            bat 'npm install sonar-scanner --save-dev'
-                            bat 'sonar-scanner'
+                           // bat 'npm install sonar-scanner --save-dev'
+                           // bat 'sonar-scanner'
+                             def sonarScannerHome = tool 'sonar-scanner'
+                             bat "${sonarScannerHome}/bin/sonar-scanner"
                         }
                     }
                 }
