@@ -18,14 +18,16 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('sonartoken') {
-                        sh 'npm install sonar-scanner --save-dev'
-                        sh 'sonar-scanner'
+                        if (isUnix()) {
+                            sh 'npm install sonar-scanner --save-dev'
+                            sh 'sonar-scanner'
+                        } else {
+                            bat 'npm install sonar-scanner --save-dev'
+                            bat 'sonar-scanner'
+                        }
                     }
                 }
             }
         }
     }
-}   
-      
-
-    
+}
