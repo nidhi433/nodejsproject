@@ -14,18 +14,16 @@ pipeline {
         }
     }
 } 
-     stage('Test') {
+    stage('Test') {
             steps {
                 script {
                     withSonarQubeEnv('sonartoken') {
                         if (isUnix()) {
-                           sh 'npm install sonar-scanner --save-dev'
-                           sh 'npm run sonar'
+                            sh 'npm install sonar-scanner --save-dev'
+                            sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
                         } else {
-                           // bat 'npm install sonar-scanner --save-dev'
-                            bat 'sonar-scanner'
-                            // def sonarScannerHome = tool 'sonar-scanner'
-                            // bat "${sonarScannerHome}/bin/sonar-scanner"
+                            def sonarScannerHome = tool 'sonar-scanner'
+                            bat "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=."
                         }
                     }
                 }
