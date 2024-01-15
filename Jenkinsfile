@@ -11,6 +11,7 @@ pipeline {
        steps {
             script {
             bat 'npm install'
+            run `npm fund
         }
     }
 } 
