@@ -17,7 +17,7 @@ pipeline {
     stage('Test') {
             steps {
                 script {
-                    withSonarQubeEnv('sonartoken') {
+                    withSonarQubeEnv('nodejs_token') {
                         if (isUnix()) {
                             sh 'npm install sonar-scanner --save-dev'
                             sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
