@@ -1,19 +1,14 @@
 pipeline {
     agent any
-
-    environment {
-        NODEJS_HOME = tool 'NodeJS'
-        PATH = "/c/Program Files/nodejs/node:${NODEJS_HOME}/bin"
-    }
-
     stages {
-        stage('Checkout') {
+        stage('pull-code') {
             steps {
-                checkout scm
                 git credentialsId: 'github_token', url: 'https://github.com/nidhi433/nodejsproject.git', branch: 'main'
             }
-        }
+        }    
+    }
 
+    
         stage('Install Dependencies') {
             steps {
                 script {
