@@ -17,14 +17,13 @@ pipeline {
     stage('Test') {
             steps {
                 script {
-                    withSonarQubeEnv('nodejs_token') {
-                        if (isUnix()) {
+                    withSonarQubeEnv('sonar_token') {
+                    
                             sh 'npm install sonar-scanner --save-dev'
                             sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
-                        } else {
+                        
                             def sonarScannerHome = tool 'sonar-scanner'
                             bat "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=."
-                        }
                     }
                 }
             }
