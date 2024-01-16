@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         NODEJS_HOME = tool 'NodeJS'
-        PATH = "${/c/Program Files/nodejs/node}:${NODEJS_HOME}/bin"
+        PATH = "/c/Program Files/nodejs/node:${NODEJS_HOME}/bin"
     }
 
     stages {
