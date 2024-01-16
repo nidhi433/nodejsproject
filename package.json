@@ -1,19 +1,22 @@
 {
-  "scripts": {
-    "start": "nyc serverless offline start",
-    "test": "nyc mocha *.js",
-    "coverage": "nyc --reporter=lcov npm run test --exit",
-    "sonar": "sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqa_14c1ba92de8fe5d3945d2eb479a96a0a18ff2009"
-  },
-  "devDependencies": {
-    "esm": "^3.2.25",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
-    "serverless-offline": "^13.3.2",
-    "serverless-plugin-typescript": "^2.1.5",
-    "sonar-scanner": "^3.1.0"
-  },
-  "dependencies": {
-    "chai-http": "^4.4.0"
-  }
+"scripts": {
+"start": "nyc serverless offline start",
+"build": "webpack",
+"test": "nyc mocha *.js",
+"coverage": "nyc --reporter=lcov npm run test --exit",
+"sonar": "sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_85153a6260ce24475a9ed3dab0a86d5cfc7edf63"
+},
+"devDependencies": {
+"aws-sdk-mock": "^5.8.0",
+"chai": "^5.0.0",
+"chai-http": "^4.4.0",
+"esm": "^3.2.25",
+"mocha": "^10.2.0",
+"nyc": "^15.1.0",
+"serverless-offline": "^13.3.2",
+"serverless-plugin-typescript": "^2.1.5",
+"sonar-scanner": "^3.1.0",
+"supertest": "^6.3.3",
+"webpack-cli": "^5.1.4"
+}
 }
