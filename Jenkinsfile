@@ -11,6 +11,7 @@ pipeline {
                 script {
                     // Install Node.js dependencies
                     bat 'npm install'
+                    bat 'npm install -D webpack-cli'
                 }
             }
         }   
