@@ -3,7 +3,7 @@ pipeline {
      stages {
         stage('pull-code') {
             steps {
-                 url: 'https://github.com/nidhi433/nodejsproject.git', branch: 'main'
+                 git credentialsId: 'github_token', url: 'https://github.com/nidhi433/nodejsproject.git', branch: 'main'
             }
         }
   stage('Install Dependencies') {
