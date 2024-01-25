@@ -32,7 +32,7 @@ pipeline {
         sh 'npm run coverage'
 
         // Define SonarQube scanner tool
-        //def scannerHome = tool '/home/neo/sonar-scanner-4.8.0.2856-linux';
+        def SONAR_RUNNER_HOME = tool 'sonar';
 
         // Run SonarQube analysis
         withSonarQubeEnv('SonarQubeScanner') {
