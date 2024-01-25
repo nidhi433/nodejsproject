@@ -20,18 +20,6 @@ pipeline {
                 sh 'npm run build'
             }
         }
-node {
-        stage('Test') {
-            steps {
-                // Define SonarQube scanner tool
-                // def scannerHome = tool 'SonarQubeScanner';
-
-                // Run SonarQube analysis
-                withSonarQubeEnv('SonarQubeScanner') {
-                    sh "${scannerHome}/bin/sonar-scanner --version"
-                  }
-                }
-            }
-        }
+        
     }
 }
