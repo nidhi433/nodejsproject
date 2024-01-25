@@ -21,10 +21,7 @@ pipeline {
             }
         }
         stage('Test') {
-    steps {
-        // Install dev dependencies (if not already installed)
-        sh 'npm install'
-
+    steps(SonarQube Analysis) {
         // Run tests with code coverage
         sh 'npm test'
 
