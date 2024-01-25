@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    docker { image 'sonarsource/sonar-scanner-cli' }
      stages {
         stage('pull-code') {
             steps {
