@@ -4,7 +4,7 @@
 "build": "webpack",
 "test": "nyc mocha *.js",
 "coverage": "nyc --reporter=lcov npm run test --exit",
-"sonar": "sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqa_6d2f7b2652da6ea2b52fe93111f3be398afb289f"
+"sonar": "sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_13adff665296a8ea589fe27e68d7c8a89565a4a4"
 },
 "devDependencies": {
 "aws-sdk-mock": "^5.8.0",
