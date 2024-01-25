@@ -20,6 +20,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        node {
         stage('Test') {
             steps {
                 // Define SonarQube scanner tool
@@ -27,7 +28,8 @@ pipeline {
 
                 // Run SonarQube analysis
                 withSonarQubeEnv('SonarQubeScanner') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.login=sqp_13adff665296a8ea589fe27e68d7c8a89565a4a4"
+                    sh "${scannerHome}/bin/sonar-scanner --version"
+                  }
                 }
             }
         }
