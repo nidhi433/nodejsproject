@@ -26,7 +26,6 @@ pipeline {
                 script {
                     withSonarQubeEnv('SonarQubeScanner') {
                         sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
-                        sh 'npm run build'
                         def sonarScannerHome = tool 'sonar-scanner'
                         sh "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=."
                     }
