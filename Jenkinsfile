@@ -24,10 +24,11 @@ pipeline {
     stage('Test') {
             steps {
                 script {
-                    withSonarQubeEnv('SonarQubeScanner') {
-                        sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
-                        def sonarScannerHome = tool 'sonar-scanner'
-                        sh "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=."
+                        sonar-scanner \
+                        -Dsonar.projectKey=serverless \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.login=sqp_28e1b0f59370f4cce75e23121b8dacadc0d81561
                     }
                 }
             }
