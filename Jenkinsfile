@@ -22,15 +22,10 @@ pipeline {
     }
 }
     stage('Test') {
-            steps {
-                script {
-                    withSonarQubeEnv('SonarQubeScanner') {
-                       sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
-                        def sonarScannerHome = tool 'sonar-scanner'
-                        sh "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.login=sqp_13adff665296a8ea589fe27e68d7c8a89565a4a4"
-                    }
-                }
-            }
-        }
+        def scannerHome = tool 'sonar';
+        withSonarQubeEnv('SonarQubeScanner') {
+        sh "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.login=sqp_13adff665296a8ea589fe27e68d7c8a89565a4a4"
+        }``
     }
+}
 }
