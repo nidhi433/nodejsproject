@@ -24,6 +24,13 @@ pipeline {
     stage('Test') {
             steps {
                 script {
+                    withSonarQubeEnv('SonarQubeScanner') {
+                        sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
+                        def sonarScannerHome = tool 'sonar-scanner'
+                        sh "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=."
+
+
+                    
                         sonar-scanner \
                         -Dsonar.projectKey=serverless \
                         -Dsonar.sources=. \
