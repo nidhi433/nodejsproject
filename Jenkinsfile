@@ -27,7 +27,7 @@ pipeline {
                     withSonarQubeEnv('SonarQubeScanner') {
                        sh 'sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=.'
                         def sonarScannerHome = tool 'sonar-scanner'
-                        sh "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.login=sqp_28e1b0f59370f4cce75e23121b8dacadc0d81561"
+                        sh "${sonarScannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.login=sqp_13adff665296a8ea589fe27e68d7c8a89565a4a4"
                     }
                 }
             }
