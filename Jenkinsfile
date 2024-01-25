@@ -20,7 +20,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        node {
+node {
         stage('Test') {
             steps {
                 // Define SonarQube scanner tool
