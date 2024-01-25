@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Define SonarQube scanner tool
-                def scannerHome = tool 'sonar';
+                def scannerHome = tool 'SonarQubeScanner';
 
                 // Run SonarQube analysis
                 withSonarQubeEnv('SonarQubeScanner') {
