@@ -4,7 +4,7 @@ pipeline {
         stage('pull-code') {
             steps {
                 // Checkout code from GitHub repository
-                git credentialsId: 'Github_token', url: 'https://github.com/nidhi433/nodejsproject.git', branch: 'main'
+                git credentialsId: 'githubbtoken', url: 'https://github.com/nidhi433/nodejsproject.git', branch: 'main'
             }
         }
         stage('Install Dependencies') {
