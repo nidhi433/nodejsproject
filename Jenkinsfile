@@ -22,8 +22,6 @@ pipeline {
         }
         stage('Test') {
     steps {
-        // Install dev dependencies (if not already installed)
-        bat 'npm install'
 
         // Run tests with code coverage
         bat 'npm test'
