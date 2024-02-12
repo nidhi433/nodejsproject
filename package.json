@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "build": "webpack-cli"
     "start": "nyc serverless offline start",
     "test": "nyc mocha *.js",
     "coverage": "nyc --reporter=lcov npm run test --exit",
