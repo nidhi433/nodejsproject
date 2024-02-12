@@ -10,8 +10,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Node.js dependencies
-                bat 'npm install'
-                bat 'npm install -D webpack-cli'
+                bat'npm install'
+                bat'npm install -D webpack-cli'
             }
         }
         stage('Build') {
