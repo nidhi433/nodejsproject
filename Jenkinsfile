@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        NodeJS 'v20.11.0'
+        nodejs 'NodeJS'
     }
     stages {
         stage('pull-code') {
