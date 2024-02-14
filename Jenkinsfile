@@ -30,11 +30,10 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-           // environment {
+            environment {
                 // Define SonarScanner tool
                 SONAR_RUNNER_HOME = tool 'SonarScanner 5.0.1'
-            def scannerHome = tool 'SonarScanner 5.0.1'
-           // }
+            }
             steps {
                 // Run SonarQube analysis
                 sh "${SONAR_RUNNER_HOME}/bin/sonar-scanner \
