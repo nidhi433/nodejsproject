@@ -21,24 +21,29 @@ pipeline {
             }
         }
         stage('Test') {
-    steps {
+            steps {
+                // Run tests with code coverage
+                sh 'npm test'
 
-        // Run tests with code coverage
-        sh 'npm test'
-
-        // Generate code coverage report
-        sh 'npm run coverage'
-
-        // Define SonarQube scanner tool
-        def scannerHome = tool 'sonarscanner 4.6';
-
-        // Run SonarQube analysis
-        withSonarQubeEnv('Sonarqube-9.8') {
-            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_57ea10a1eec13aa3ff2c8a213c90312d5f72a392"
+                // Generate code coverage report
+                sh 'npm run coverage'
+            }
         }
-    }
-}
-
-        
+        stage('SonarQube Analysis') {
+            environment {
+                // Define SonarScanner tool
+                SONAR_RUNNER_HOME = tool 'SonarScanner 4.6'
+            }
+            steps {
+                // Run SonarQube analysis
+                sh "${SONAR_RUNNER_HOME}/bin/sonar-scanner \
+                    -Dsonar.projectKey=serverless \
+                    -Dsonar.sources=. \
+                    -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+                    -Dsonar.java.binaries=./* \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=sqp_57ea10a1eec13aa3ff2c8a213c90312d5f72a392"
+            }
+        }
     }
 }
