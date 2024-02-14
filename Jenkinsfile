@@ -30,10 +30,10 @@ pipeline {
         sh 'npm run coverage'
 
         // Define SonarQube scanner tool
-        //def SONAR_RUNNER_HOME = tool 'sonar-scanner';
+        def scannerHome = tool 'sonarscanner 4.0';
 
         // Run SonarQube analysis
-        withSonarQubeEnv('SonarQubeScanner') {
+        withSonarQubeEnv('Sonarqube-9.8') {
             sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_57ea10a1eec13aa3ff2c8a213c90312d5f72a392"
         }
     }
