@@ -33,7 +33,7 @@ pipeline {
             environment {
                 // Define SonarScanner tool
                 //SONAR_RUNNER_HOME = tool 'SonarScanner 5.0.1'
-                sonarqubeScanner 'SonarScanner 5.0.1'
+                sonarqubeScanner 'SonarQubeScanner 5.0.1'
             }
             steps {
                 // Run SonarQube analysis
