@@ -34,7 +34,7 @@ pipeline {
 
         // Run SonarQube analysis
         withSonarQubeEnv('SonarQubeScanner') {
-            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_1f2bb9faac9c10381e5c27cff5fb9e9a3f890781"
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_57ea10a1eec13aa3ff2c8a213c90312d5f72a392"
         }
     }
 }
