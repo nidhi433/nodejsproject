@@ -30,7 +30,7 @@ pipeline {
         sh 'npm run coverage'
 
         // Define SonarQube scanner tool
-        def scannerHome = tool 'sonarscanner 4.0';
+        def scannerHome = tool 'sonarscanner 4.6';
 
         // Run SonarQube analysis
         withSonarQubeEnv('Sonarqube-9.8') {
