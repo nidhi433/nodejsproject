@@ -2,7 +2,7 @@
   "scripts": {
     "start": "nyc serverless offline start",
     "build": "webpack --config webpack.config.js",
-    "test": "nyc mocha test/*.js", 
+    "test": " nyc mocha *.js", 
     "coverage": "nyc --reporter=lcov npm run test --exit",
     "sonar": "sonar-scanner -Dsonar.projectKey=serverless -Dsonar.sources=. -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.java.binaries=./* -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_57ea10a1eec13aa3ff2c8a213c90312d5f72a392"
   },
