@@ -42,7 +42,7 @@ pipeline {
                     -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
                     -Dsonar.java.binaries=./* \
                     -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=sqp_57ea10a1eec13aa3ff2c8a213c90312d5f72a392"
+                    -Dsonar.login=sqp_e8d0cc6ade1a98d0c7b6f83c5a6621c515a1a77a"
             }
         }
     }
